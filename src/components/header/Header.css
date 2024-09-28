@@ -1,0 +1,56 @@
+/* Header */
+.header {
+	position: relative;
+	min-height: 724px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url('./../../images/header.jpg');
+	background-repeat: no-repeat;
+	background-size: cover; 
+	background-position: center center;
+
+	border-bottom: 10px solid var(--orange400);
+	color: var(--white); 
+
+	text-align: center;
+	overflow: hidden;
+	width: 100vw;
+}
+
+.header__wrapper {
+	align-items: center;
+	padding: 0 15px;
+	max-width: 660px;
+}
+
+.header__title {
+	margin-bottom: var(--medium);
+	font-weight: 600;
+	font-size: 58px;
+	line-height: 58px;
+}
+
+.header__title strong {
+	font-size: 60px;
+    font-weight: 900;
+	color: var(--Grey800);
+}
+
+.header__text {
+	margin-bottom: 40px;
+	font-size: var(--medium);
+}
+
+.header__text p + p {
+	margin-top: 0.5em;
+}
+
+.header-button {
+    background-color: var(--Green400); /* Цвет кнопки */
+    color: var(--white);
+}
+
+.header-button:hover {
+    background-color: var(--orange600);
+}

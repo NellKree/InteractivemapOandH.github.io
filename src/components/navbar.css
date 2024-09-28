@@ -1,0 +1,29 @@
+.navbar {
+  display: flex; /* Используем flexbox для выравнивания */
+  align-items: center; /* Вертикальное центрирование */
+  justify-content: flex-start; /* Выравнивание по левому краю */
+  padding: var(--small); /* Внутренние отступы */
+  background-color: var(--Grey800);
+  color: var(--white);
+}
+
+.logo {
+  height: 120px; 
+  margin-right: var(--xlarge); /* Отступ между логотипом и заголовком */
+}
+
+.title {
+  margin: 0; 
+  font-size:xx-large;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 80px;
+  }
+}
+@media (max-width: 700px) {
+  .title {
+    display: none; 
+  }
+}

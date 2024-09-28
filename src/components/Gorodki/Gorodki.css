@@ -1,0 +1,94 @@
+.gorodki-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.gorodki-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.gorodki-description {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.gorodki-gallery {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.gallery-wrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item {
+  min-width: 100%;
+  transition: opacity 0.5s ease;
+}
+
+.gallery-item img { /* Добавляем стили для изображений в галерее */
+  border-radius: 8px; /* Закругление углов изображений */
+  width: 100%; /* Сделаем изображение адаптивным */
+  height: auto; /* Сохраним пропорции */
+}
+
+.gallery-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.gallery-button {
+  border: none;
+  background-color: var(--Grey800);
+  color: white;
+  border-radius: 50%; /* Делаем кнопку круглой */
+  width: 40px; /* Ширина кнопки */
+  height: 40px; /* Высота кнопки */
+  font-size: 20px; /* Размер шрифта */
+  cursor: pointer;
+  margin: 0 10px; /* Отступ между кнопками */
+  transition: background-color 0.3s; /* Плавный переход при наведении */
+}
+
+.gallery-button:hover {
+  background-color: var(--Green400); /* Цвет кнопки при наведении */
+}
+
+.centered-button-container {
+  display: flex;
+  justify-content: center; /* Центрируем по горизонтали */
+  margin-top: 20px; /* Отступ сверху для визуального отделения */
+}
+
+.button.home-button:hover {
+  background-color: var(--Green600); /* Цвет фона кнопки при наведении */
+}
+
+.gorodki-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Отступ между секциями */
+}
+
+.section {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.section img {
+  width: 100%; /* Сделаем изображение адаптивным */
+  height: auto; /* Сохраним пропорции */
+  border-radius: 8px; /* Добавим скругление */
+}
+
+
+  

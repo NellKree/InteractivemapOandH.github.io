@@ -1,0 +1,63 @@
+.footer {
+    background-color: var(--Grey800); /* Темный фон */
+    color: var(--white);              /* Белый текст */
+    padding: var(--xxlarge) var(--small);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Стили для информационной части футера */
+  .footer__info {
+    text-align: center;
+    margin-bottom: var(--xxlarge);
+    margin-top: var(--xxlarge);
+  }
+  
+  .footer__email, .footer__copyright {
+    margin: 5px 0;
+  }
+  
+  /* Стили для блока с иконками */
+  .footer__icons {
+    display: flex;
+    justify-content: center;
+    gap: var(--small); /* Расстояние между иконками */
+  }
+  
+  .footer__icons img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+    object-fit: cover;   
+    transition: transform 0.3s ease;
+  }
+  
+  .footer__icons img:hover {
+    transform: scale(1.5); /* Легкое увеличение при наведении */
+  }
+  
+  /* Адаптивные стили */
+  @media (max-width: 768px) {
+    .footer__icons img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer {
+      padding: 15px 5px;
+    }
+  
+    .footer__icons img {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .footer__email, .footer__copyright {
+      font-size: 14px;
+    }
+  }
+  

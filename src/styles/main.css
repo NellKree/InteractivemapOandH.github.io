@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Raleway:wght@400;500;600&display=swap');
+:root {
+	/* Colors */
+	--black: #313131;
+	--white: #ffffff;
+	--orange600: #923d0f;
+    --orange400: #dd7742;
+	--blue600 : #3b4e7e;
+	--blue400 : #5975bc;
+	--pink600 : #8f3365;
+	--pink400 : #bc598f;
+    --Green600 : #6c7825;
+	--Green400 : #aebc59;
+    --Grey800 : #424242;
+    --Grey600 : #6a6a6a;
+    --Grey400 : #d4d4d4;
+
+    /* Font size */
+    --small: 16px;
+	--medium: 20px;
+	--large: 24px;
+	--xlarge : 28px;
+	--xxlarge : 32px;
+
+	--page-bg: var(--white);
+	--text-color: var(--black);
+	--accent: var(--orange600);
+	--title-1: var(--black);
+	--title-2: var(--black);
+}
+html,
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Raleway';
+	font-style: normal;
+
+	color: var(--text-color);
+}
+
+/* Button styles */
+.button {
+    display: absolute;
+    padding: var(--small) var(--large);
+    border: none;   
+    border-radius: var(--medium); 
+    font-size: var(--xlarge);
+
+    z-index: 3;
+    cursor: pointer;
+}
+
+.no-style-link {
+    display: inline-block; /* Ссылка ведет себя как блок, чтобы избежать смещений */
+    text-decoration: none; /* Убираем подчеркивание */
+  }
+  
+  .no-style-link img {
+    width: 100%; /* Оставляем исходные размеры изображения */
+    height: auto;
+    display: block; /* Избегаем появления смещений */
+    margin: 0; /* Сбрасываем любые отступы */
+    padding: 0;
+    border: none; /* Убираем рамку вокруг изображения, если она есть */
+  }
+  
+
+/* Reset and base styles  */
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Links */
+
+a, a:link, a:visited  {
+    text-decoration: none;
+}
+
+a:hover  {
+    text-decoration: none;
+}
+
+/* Common */
+
+aside, nav, footer, header, section, main {
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+	font-weight: inherit;
+}
+
+ul, ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Form */
+
+input, textarea, button, select {
+	font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+}
+
+label {
+	cursor: pointer;
+}
+
+legend {
+	display: block;
+}
