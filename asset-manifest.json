@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/InteractivemapOandH.github.io/static/css/main.af2dd487.css",
+    "main.js": "/InteractivemapOandH.github.io/static/js/main.5e29b2a2.js",
+    "static/js/453.411360c0.chunk.js": "/InteractivemapOandH.github.io/static/js/453.411360c0.chunk.js",
+    "static/media/image2.jpg": "/InteractivemapOandH.github.io/static/media/image2.de635b3c78fbe3632878.jpg",
+    "static/media/image1.jpg": "/InteractivemapOandH.github.io/static/media/image1.8148150ad3a8e224f70a.jpg",
+    "static/media/header.jpg": "/InteractivemapOandH.github.io/static/media/header.29bdd1054eae0ce2e39c.jpg",
+    "static/media/fi2.jpg": "/InteractivemapOandH.github.io/static/media/fi2.e87a64a5b1f278032ee2.jpg",
+    "static/media/fi3.jpg": "/InteractivemapOandH.github.io/static/media/fi3.e42d47149a68cacb975f.jpg",
+    "static/media/fi1.jpg": "/InteractivemapOandH.github.io/static/media/fi1.7b600e44771c7b02fa20.jpg",
+    "static/media/fi5.jpg": "/InteractivemapOandH.github.io/static/media/fi5.b3f6750f59e5c9f70bf0.jpg",
+    "static/media/fi4.jpg": "/InteractivemapOandH.github.io/static/media/fi4.d60d4fc3a7be3a83eaad.jpg",
+    "static/media/logo.png": "/InteractivemapOandH.github.io/static/media/logo.acf1d4256ca9bfbc476b.png",
+    "static/media/qr.svg": "/InteractivemapOandH.github.io/static/media/qr.3891028474f8d89d1ac3874208895ee9.svg",
+    "index.html": "/InteractivemapOandH.github.io/index.html",
+    "main.af2dd487.css.map": "/InteractivemapOandH.github.io/static/css/main.af2dd487.css.map",
+    "main.5e29b2a2.js.map": "/InteractivemapOandH.github.io/static/js/main.5e29b2a2.js.map",
+    "453.411360c0.chunk.js.map": "/InteractivemapOandH.github.io/static/js/453.411360c0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af2dd487.css",
+    "static/js/main.5e29b2a2.js"
+  ]
+}
