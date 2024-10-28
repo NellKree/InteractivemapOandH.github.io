@@ -10,7 +10,7 @@ const Header = () => {
 						Вёсла-ремёсла
 					</strong>
 				</h1>
-				<div className="header__text">
+				<div className="header__text htext">
 					<p>Межкампусный проект НИУ ВШЭ</p>
 				</div>
 				<Link to="/map" className="button header-button">

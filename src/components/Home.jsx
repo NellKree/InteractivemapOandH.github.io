@@ -1,104 +1,96 @@
-import './Home.css'; 
-import React, { useState, useRef, useEffect } from 'react';
-import './../styles/main.css';
+import './Home.css';
+import React, { useEffect, useRef } from 'react';
+import Swiper from 'swiper/bundle';
+import 'swiper/swiper-bundle.css';
 import Header from './../components/header/Header';
 import Footer from './../components/Footer/Footer';
 import QrCodeSection from './QrCodeSection';
-import projectImage from './../images/image1.jpg';  // Замените на ваш путь
+import projectImage from './../images/image1.png';
 
-import galleryImage1 from './../images/image1.jpg';  // Галерея изображений
-import galleryImage2 from './../images/image2.jpg';
-import galleryImage3 from './../images/image1.jpg';
+import galleryImage1 from './../images/image2.png';
+import galleryImage2 from './../images/image3.png';
+import galleryImage3 from './../images/image4.png';
+import galleryImage4 from './../images/image5.png';
+import galleryImage5 from './../images/image6.png';
 
 const Home = () => {
-    const [currentImage, setCurrentImage] = useState(0);
-    const galleryImages = [galleryImage1, galleryImage2, galleryImage3];
-
-    // Для свайпа
-    const startXRef = useRef(0);
-    const intervalRef = useRef(null);
-
-    const nextImage = () => {
-        setCurrentImage((prevImage) => (prevImage + 1) % galleryImages.length);
-    };
-
-    const prevImage = () => {
-        setCurrentImage((prevImage) => 
-            prevImage === 0 ? galleryImages.length - 1 : prevImage - 1
-        );
-    };
-
-    const handleTouchStart = (e) => {
-        startXRef.current = e.touches[0].clientX;
-        if (intervalRef.current) {
-            clearInterval(intervalRef.current);
-        }
-    };
-
-    const handleTouchEnd = (e) => {
-        const endX = e.changedTouches[0].clientX;
-        const distance = startXRef.current - endX;
-
-        if (distance > 50) {
-            nextImage();
-        } else if (distance < -50) {
-            prevImage();
-        }
-        startAutoScroll();
-    };
-
-    const startAutoScroll = () => {
-        intervalRef.current = setInterval(nextImage, 25000); 
-    };
+    const swiperRef = useRef(null);
 
     useEffect(() => {
-        startAutoScroll();
+        swiperRef.current = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',  // Стрелка "вперёд"
+                prevEl: '.swiper-button-prev',  // Стрелка "назад"
+            },
+            autoplay: {
+                delay: 3000,
+            },
+        });
+
         return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
+            if (swiperRef.current) {
+                swiperRef.current.destroy();
             }
         };
     }, []);
 
+    const galleryImages = [galleryImage1, galleryImage2, galleryImage3, galleryImage4, galleryImage5];
+
     return (
         <div>
-            <Header />
+            <Header/>
             <div className="home-block">
                 {/* Секция с описанием проекта */}
                 <div className="project-section">
-                    <img src={projectImage} alt="Описание проекта" className="project-image" />
+                    <img src={projectImage} alt="Описание проекта" className="project-image"/>
                     <div className="project-description">
                         <h2>О проекте</h2>
-                        <p>Наш проект «Вёсла-ремёсла» — это межкампусный проект НИУ ВШЭ, который стремится изучить и сохранить уникальные традиции ремёсел и культуры в разных уголках России.</p>
+                        <p>Наш проект «Вёсла-ремёсла» — это межкампусный проект НИУ ВШЭ, который стремится изучить и
+                            сохранить уникальные традиции ремёсел и культуры в разных уголках России.</p>
                     </div>
                 </div>
 
                 {/* Галерея изображений */}
-                <div className="gallery-section">
-                    <div
-                        className="gallery-container"
-                        onTouchStart={handleTouchStart}  // Начало касания
-                        onTouchEnd={handleTouchEnd}  // Конец касания
-                    >
-                        <div className="gallery-slider" style={{ transform: `translateX(-${currentImage * 100}%)` }}>
-                            {galleryImages.map((image, index) => (
-                                <img key={index} src={image} alt={`Изображение ${index + 1}`} />
-                            ))}
-                        </div>
+                <div className="swiper-container">
+                    <div className="swiper-wrapper">
+                        {galleryImages.map((image, index) => (
+                            <div className="swiper-slide" key={index}>
+                                <img src={image} alt={`Изображение ${index + 1}`}/>
+                            </div>
+                        ))}
                     </div>
-                    <div className="gallery-buttons">
-                        <button className="gallery-button" onClick={prevImage}>‹</button>
-                        <button className="gallery-button" onClick={nextImage}>›</button>
-                    </div>
+
+                    {/* Пагинация */}
+                    <div className="swiper-pagination"></div>
                 </div>
 
-                <QrCodeSection />
+                {/* Контейнер для навигации со стрелками */}
+                <div className="swiper-navigation">
+                    <div className="swiper-button-prev"></div>
+                    <div className="swiper-button-next"></div>
+                </div>
+
+                <QrCodeSection/>
             </div>
-            <Footer />
+
+            <Footer/>
         </div>
     );
 };
 
 export default Home;
+
+
+
+
+
+
+
+
 
 

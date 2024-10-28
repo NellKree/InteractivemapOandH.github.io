@@ -1,139 +1,127 @@
-import React, { useState, useEffect } from 'react';
-import { useSwipeable } from 'react-swipeable';
+import React, {  useEffect , useRef} from 'react';
 
-import './../Gorodki/Gorodki.css'; 
+import './../Gorodki/Gorodki.css';
 import Footer from './../../components/Footer/Footer';
-import galleryImage1 from './../../images/image1.jpg';
-import galleryImage2 from './../../images/image2.jpg';
-import galleryImage3 from './../../images/image1.jpg';
-import galleryImage4 from './../../images/image2.jpg'; 
-import galleryImage5 from './../../images/image1.jpg'; 
-import galleryImage6 from './../../images/image2.jpg'; 
+import galleryImage1 from './../../images/cunnimagic/kyn1.jpg';
+import galleryImage2 from './../../images/cunnimagic/kyn2.jpg';
+import galleryImage3 from './../../images/cunnimagic/kyn3.jpg';
+import galleryImage4 from './../../images/cunnimagic/kyn4.jpg';
+import galleryImage5 from './../../images/cunnimagic/kyn5.jpg';
+import galleryImage6 from './../../images/cunnimagic/kyn6.png';
+import galleryImage7 from './../../images/cunnimagic/kyn7.png';
+import galleryImage8 from './../../images/cunnimagic/kyn8.png';
 import QrCodeSection from './../QrCodeSection';
+import Swiper from 'swiper';
 
 const Kyn = () => {
   // Первое множество изображений для первой галереи
-  const firstGalleryImages = [galleryImage1, galleryImage2, galleryImage3];
-  
+  const galleryImages = [galleryImage1, galleryImage2, galleryImage3, galleryImage6, galleryImage7, galleryImage8];
+
   // Второе множество изображений для второй галереи
-  const secondGalleryImages = [galleryImage4, galleryImage5, galleryImage6];
-  
-  const [currentIndex1, setCurrentIndex1] = useState(0);
-  const [currentIndex2, setCurrentIndex2] = useState(0);
+  const secondGalleryImages = [galleryImage4, galleryImage5];
 
-  // Обработчик свайпа для первой галереи
-  const swipeHandlers1 = useSwipeable({
-    onSwipedLeft: () => handleNext1(),
-    onSwipedRight: () => handlePrev1(),
-    trackMouse: true,
-  });
-
-  // Обработчик свайпа для второй галереи
-  const swipeHandlers2 = useSwipeable({
-    onSwipedLeft: () => handleNext2(),
-    onSwipedRight: () => handlePrev2(),
-    trackMouse: true,
-  });
+  const swiperRef = useRef(null);
+  const secondSwiperRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext1(); // Автопереключение для первой галереи
-    }, 25000);
-    return () => clearInterval(interval);
-  }, [currentIndex1]);
+    swiperRef.current = new Swiper('.swiper-container', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 3000,
+      },
+    });
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext2(); // Автопереключение для второй галереи
-    }, 25000);
-    return () => clearInterval(interval);
-  }, [currentIndex2]);
+    secondSwiperRef.current = new Swiper('.swiper-container', { // Второй Swiper
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination2',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next2',
+        prevEl: '.swiper-button-prev2',
+      },
+      autoplay: {
+        delay: 3000,
+      },
+    });
 
-  const handleNext1 = () => {
-    setCurrentIndex1((prevIndex) => (prevIndex + 1) % firstGalleryImages.length);
-  };
-
-  const handlePrev1 = () => {
-    setCurrentIndex1((prevIndex) =>
-      prevIndex === 0 ? firstGalleryImages.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext2 = () => {
-    setCurrentIndex2((prevIndex) => (prevIndex + 1) % secondGalleryImages.length);
-  };
-
-  const handlePrev2 = () => {
-    setCurrentIndex2((prevIndex) =>
-      prevIndex === 0 ? secondGalleryImages.length - 1 : prevIndex - 1
-    );
-  };
-
+    return () => {
+      if (swiperRef.current) swiperRef.current.destroy();
+      if (secondSwiperRef.current) secondSwiperRef.current.destroy();
+    };
+  }, []);
   return (
-    <din>
-    <div className="gorodki-container">
-      {/* Крупное название и текстовое описание */}
-      <h1 className="gorodki-title">Кын</h1>
-      <p className="gorodki-description">
-        Кын — село в Пермском крае России. Входит в Лысьвенский городской округ.
-      </p>
+      <div>
+        <div className="gorodki-container">
+          {/* Крупное название и текстовое описание */}
+          <h1 className="gorodki-title">Кын</h1>
+          <p className="gorodki-description">
+            Кын — это село в Пермском крае, которое славится своей богатой историей и активным развитием ремесел и туризма. Основанное в 1759 году, оно стало значимым центром металлургии благодаря Кыновскому железоделательному заводу, который работал более двухсот лет и обеспечивал металлом весь Урал.
+            Село также известно своими археологическими находками: в его окрестностях были обнаружены пять из шести известных бронзовых блях с изображением медведя в жертвенной позе, относящихся к пермскому звериному стилю.
+          </p>
 
-      {/* Первая галерея изображений */}
-      <div className="gorodki-gallery" {...swipeHandlers1}>
-        <div
-          className="gallery-wrapper"
-          style={{ transform: `translateX(-${currentIndex1 * 100}%)` }}
-        >
-          {firstGalleryImages.map((image, index) => (
-            <div key={index} className="gallery-item">
-              <img src={image} alt={`Галерея 1 - ${index + 1}`} />
+          {/* Первая галерея */}
+          <div className="swiper-container">
+            <div className="swiper-wrapper">
+              {galleryImages.map((image, index) => (
+                  <div className="swiper-slide" key={index}>
+                    <img src={image} alt={`Изображение ${index + 1}`} />
+                  </div>
+              ))}
             </div>
-          ))}
-        </div>
-        {/* Кнопки для переключения */}
-        <div className="gallery-buttons">
-          <button className="gallery-button" onClick={handlePrev1}>‹</button>
-          <button className="gallery-button" onClick={handleNext1}>›</button>
-        </div>
-      </div>
+            <div className="swiper-pagination"></div>
+          </div>
+          <div className="swiper-navigation">
+            <div className="swiper-button-prev"></div>
+            <div className="swiper-button-next"></div>
+          </div>
 
-      {/* Описание для первой галереи */}
-      <p className="gorodki-description">
-        Это текст.
-      </p>
+          {/* Описание для первой галереи */}
+          <p className="gorodki-description">
+            Природа вокруг Кына впечатляет живописными ландшафтами, включая знаменитые скалы Великан, Печка и Денежный на реке Чусовой. Эти места привлекают туристов и любителей активного отдыха, предоставляя возможности для пеших прогулок и фотосъемки.
+          </p>
 
-      {/* Второе крупное название и вторая галерея */}
-      <h1 className="gorodki-title">Заголовок</h1>
-      <div className="gorodki-gallery" {...swipeHandlers2}>
-        <div
-          className="gallery-wrapper"
-          style={{ transform: `translateX(-${currentIndex2 * 100}%)` }}
-        >
-          {secondGalleryImages.map((image, index) => (
-            <div key={index} className="gallery-item">
-              <img src={image} alt={`Галерея 2 - ${index + 1}`} />
+          {/* Вторая галерея
+          <div className="swiper-container2">
+            <div className="swiper-wrapper2">
+              {secondGalleryImages.map((image, index) => (
+                  <div className="swiper-slide2" key={index}>
+                    <img src={image} alt={`Вторая галерея ${index + 1}`} />
+                  </div>
+              ))}
             </div>
-          ))}
+            <div className="swiper-pagination2"></div>
+          </div>
+
+          <div className="swiper-navigation2">
+            <div className="swiper-button-prev2"></div>
+            <div className="swiper-button-next2"></div>
+          </div>
+*/}
+
+          {/* Описание для второй галереи */}
+          <p className="gorodki-description">
+            В Кыну активно развиваются различные ремесла, такие как лесозаготовка и производство мебели. Местные жители занимаются также рукоделием, создавая уникальные изделия из дерева, текстиля и глины.
+          </p>
+
+          <QrCodeSection />
         </div>
-        {/* Кнопки для переключения */}
-        <div className="gallery-buttons">
-          <button className="gallery-button" onClick={handlePrev2}>‹</button>
-          <button className="gallery-button" onClick={handleNext2}>›</button>
-        </div>
+        <Footer />
       </div>
-
-      {/* Описание для второй галереи */}
-      <p className="gorodki-description">
-        Текст.
-      </p>
-
-      <QrCodeSection />
-    </div>
-    <Footer />
-    </din>
   );
 };
 
 export default Kyn;
+
+
 
 

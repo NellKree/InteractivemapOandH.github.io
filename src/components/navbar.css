@@ -1,29 +1,79 @@
 .navbar {
-  display: flex; /* Используем flexbox для выравнивания */
-  align-items: center; /* Вертикальное центрирование */
-  justify-content: flex-start; /* Выравнивание по левому краю */
-  padding: var(--small); /* Внутренние отступы */
+  display: flex;
+  justify-content: space-between; /* Разделение блоков на левый и правый */
+  align-items: center; /* Выравнивание по вертикали */
+  padding: var(--small);
   background-color: var(--Grey800);
   color: var(--white);
+  height: 140px;
+}
+
+.left-section {
+  display: flex;
+
+  align-items: center; /* Логотип и заголовок по горизонтали */
 }
 
 .logo {
-  height: 120px; 
-  margin-right: var(--xlarge); /* Отступ между логотипом и заголовком */
+  height: 120px;
+  margin-right: var(--xlarge);
 }
 
 .title {
-  margin: 0; 
-  font-size:xx-large;
+  margin: 0;
+  font-size: xx-large;
 }
 
+.nav-buttons {
+  display: flex;
+  flex-direction: column; /* Вертикальное расположение кнопок */
+  gap: 10px; /* Отступ между кнопками */
+  padding-right: var(--xxlarge);
+}
+
+.nav-button {
+  background-color: var(--Grey800);
+  color: var(--white);
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav-button:hover {
+
+  color: var(--Green400);
+}
+
+.home-button {
+  display: flex;
+  align-items: center; /* Чтобы картинка была выровнена по центру */
+}
+
+.home-logo {
+  background-color: var(--Grey800);
+  padding-right: var(--xxlarge);
+  height: 60px; /* Размер картинки в правом верхнем углу */
+}
+
+/* Адаптивность */
 @media (max-width: 768px) {
   .logo {
     height: 80px;
   }
-}
-@media (max-width: 700px) {
-  .title {
-    display: none; 
+  .home-logo {
+    padding-right: var(--large);
+    height: 35px;
+  }
+
+  .nav-buttons {
+    display: none; /* Скрываем кнопки на мобильных устройствах */
   }
 }
+
+@media (max-width: 700px) {
+  .title {
+    display: none;
+  }
+}
+

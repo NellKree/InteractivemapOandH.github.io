@@ -32,7 +32,7 @@ html,
 body {
 	display: flex;
 	flex-direction: column;
-	font-family: 'Raleway';
+	font-family: 'Raleway', serif;
 	font-style: normal;
 
 	color: var(--text-color);
@@ -40,7 +40,6 @@ body {
 
 /* Button styles */
 .button {
-    display: absolute;
     padding: var(--small) var(--large);
     border: none;   
     border-radius: var(--medium); 

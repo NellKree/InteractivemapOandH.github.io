@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // Измените BrowserRouter на HashRouter
 import './styles/main.css';
 import Navbar from './components/navbar';
 
@@ -9,23 +9,24 @@ import Kyn from './components/Kyn/Kyn';
 import Map from './components/map/map';
 
 function App() {
-  return (
-    <Router>
-    <div>
-      <Navbar /> 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/upper-chusovskie-gorodki" element={<Gorodki />} />
-          <Route path="/kyn" element={<Kyn />} />
-          <Route path="/map" element={<Map />} />
-        </Routes>
-
-    </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div>
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/upper-chusovskie-gorodki" element={<Gorodki />} />
+                    <Route path="/kyn" element={<Kyn />} />
+                    <Route path="/map" element={<Map />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
+
+
 
 
 

@@ -27,7 +27,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="footer__info">
-        <p className="footer__email">oneevgexaone@gmail.com</p>
+        <p className="footer__email">oarsandhandicrafts@gmail.com</p>
         <p className="footer__copyright">© 2024 Вёсла-ремёсла</p>
       </div>
     </footer>
