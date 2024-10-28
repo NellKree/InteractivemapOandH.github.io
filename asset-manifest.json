@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.8e347656.css",
-    "main.js": "/static/js/main.0c581c33.js",
+    "main.css": "/static/css/main.85450b16.css",
+    "main.js": "/static/js/main.0e447183.js",
     "static/js/453.ee353dfe.chunk.js": "/static/js/453.ee353dfe.chunk.js",
     "static/media/kyn6.png": "/static/media/kyn6.460114033a1d845d01f4.png",
     "static/media/upper11.png": "/static/media/upper11.b1fe9583f43ed788068d.png",
@@ -23,7 +23,6 @@
     "static/media/header.jpg": "/static/media/header.29bdd1054eae0ce2e39c.jpg",
     "static/media/Aleksandrovsk4.jpg": "/static/media/Aleksandrovsk4.a6557bce10fe6dcbaebf.jpg",
     "static/media/Nytvа3.jpg": "/static/media/Nytvа3.faa1d46ea35abef5e946.jpg",
-    "static/media/upper6.jpg": "/static/media/upper6.06dd7c971ed1c8ab379b.jpg",
     "static/media/fi2.jpg": "/static/media/fi2.e87a64a5b1f278032ee2.jpg",
     "static/media/SAIGA2.jpg": "/static/media/SAIGA2.f1eda5685b7fc2ebb3e3.jpg",
     "static/media/SAIGA1.jpg": "/static/media/SAIGA1.037b5462143da9f7519f.jpg",
@@ -80,12 +79,12 @@
     "static/media/qr.svg": "/static/media/qr.3891028474f8d89d1ac3874208895ee9.svg",
     "static/media/home.svg": "/static/media/home.4fef016fcd4bc551bfb6a85b2c5c6569.svg",
     "index.html": "/index.html",
-    "main.8e347656.css.map": "/static/css/main.8e347656.css.map",
-    "main.0c581c33.js.map": "/static/js/main.0c581c33.js.map",
+    "main.85450b16.css.map": "/static/css/main.85450b16.css.map",
+    "main.0e447183.js.map": "/static/js/main.0e447183.js.map",
     "453.ee353dfe.chunk.js.map": "/static/js/453.ee353dfe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e347656.css",
-    "static/js/main.0c581c33.js"
+    "static/css/main.85450b16.css",
+    "static/js/main.0e447183.js"
   ]
 }
