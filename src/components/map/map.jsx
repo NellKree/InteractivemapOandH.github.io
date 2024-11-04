@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef} from 'react';
 import mapboxgl from 'mapbox-gl';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 import './map.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import geojson from './../../data/geojsonData';
+import MapboxLanguage from "@mapbox/mapbox-gl-language";
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibmVsbGtyZWUiLCJhIjoiY2wzdWJmZWh4MWdmNzNjbHRpbzhodzdjaSJ9.lZeRgnRsw4XbSRIXj2un6Q';
 
@@ -29,6 +30,9 @@ export default function Map() {
       maxZoom: 12,
       minZoom: 4
     });
+
+    const language = new MapboxLanguage({ defaultLanguage: 'ru' });
+    map.current.addControl(language);
 
     geojson.features.forEach((feature, index) => {
       const { geometry, properties } = feature;
@@ -71,13 +75,11 @@ export default function Map() {
 
       const popup = new mapboxgl.Popup({ offset: 25 })
           .setHTML(popupContent);
-
-      const marker = new mapboxgl.Marker({ color: 'var(--Grey800)' })
+      new mapboxgl.Marker({ color: 'var(--Grey800)' })
           .setLngLat(geometry.coordinates)
           .setPopup(popup)
           .addTo(map.current);
-
-      // Инициализация Swiper внутри попапа
+// Инициализация Swiper внутри попапа
       popup.on('open', () => {
         new Swiper('.swiper-container', {
           loop: true,
@@ -93,10 +95,9 @@ export default function Map() {
         const button = document.getElementById(`popup-button-${properties.title.replace(/\s+/g, '-').toLowerCase()}`);
         if (button) {
           button.addEventListener('click', () => {
-            const path = index === 0
+            window.location.hash = index === 0
                 ? '/upper-chusovskie-gorodki'
                 : '/kyn';
-            window.location.hash = path;
           });
         }
       });
