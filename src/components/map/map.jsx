@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
@@ -75,11 +75,13 @@ export default function Map() {
 
       const popup = new mapboxgl.Popup({ offset: 25 })
           .setHTML(popupContent);
-      new mapboxgl.Marker({ color: 'var(--Grey800)' })
+
+      const marker = new mapboxgl.Marker({ color: 'var(--Grey800)' })
           .setLngLat(geometry.coordinates)
           .setPopup(popup)
           .addTo(map.current);
-// Инициализация Swiper внутри попапа
+
+      // Инициализация Swiper внутри попапа
       popup.on('open', () => {
         new Swiper('.swiper-container', {
           loop: true,
@@ -95,9 +97,10 @@ export default function Map() {
         const button = document.getElementById(`popup-button-${properties.title.replace(/\s+/g, '-').toLowerCase()}`);
         if (button) {
           button.addEventListener('click', () => {
-            window.location.hash = index === 0
+            const path = index === 0
                 ? '/upper-chusovskie-gorodki'
                 : '/kyn';
+            window.location.hash = path;
           });
         }
       });
