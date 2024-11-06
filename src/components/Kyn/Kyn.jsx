@@ -1,5 +1,6 @@
-import React, {  useEffect , useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 
+import './Kyn.css';
 import './../Gorodki/Gorodki.css';
 import Footer from './../../components/Footer/Footer';
 import galleryImage1 from './../../images/cunnimagic/kyn1.jpg';
@@ -15,62 +16,65 @@ import Swiper from 'swiper';
 
 const Kyn = () => {
   // Первое множество изображений для первой галереи
-  const galleryImages = [galleryImage1, galleryImage2, galleryImage3, galleryImage6, galleryImage7, galleryImage8];
+  const galleryImages = [galleryImage1, galleryImage2, galleryImage6, galleryImage7, galleryImage8];
 
   // Второе множество изображений для второй галереи
-  const secondGalleryImages = [galleryImage4, galleryImage5];
+  const secondGalleryImages = [galleryImage3, galleryImage4, galleryImage5];
 
-  const swiperRef = useRef(null);
-  const secondSwiperRef = useRef(null);
+  const swiperRef1 = useRef(null);
+  const swiperRef2 = useRef(null);
 
   useEffect(() => {
-    swiperRef.current = new Swiper('.swiper-container', {
+    // Инициализация первой галереи
+    swiperRef1.current = new Swiper('.swiper-container-1', {
       loop: true,
       pagination: {
-        el: '.swiper-pagination',
+        el: '.swiper-pagination-1',
         clickable: true,
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next-1',
+        prevEl: '.swiper-button-prev-1',
       },
       autoplay: {
-        delay: 3000,
+        delay: 5000,
       },
     });
 
-    secondSwiperRef.current = new Swiper('.swiper-container', { // Второй Swiper
+    // Инициализация второй галереи
+    swiperRef2.current = new Swiper('.swiper-container-2', {
       loop: true,
       pagination: {
-        el: '.swiper-pagination2',
+        el: '.swiper-pagination-2',
         clickable: true,
       },
       navigation: {
-        nextEl: '.swiper-button-next2',
-        prevEl: '.swiper-button-prev2',
+        nextEl: '.swiper-button-next-2',
+        prevEl: '.swiper-button-prev-2',
       },
       autoplay: {
-        delay: 3000,
+        delay: 5000,
       },
     });
 
     return () => {
-      if (swiperRef.current) swiperRef.current.destroy();
-      if (secondSwiperRef.current) secondSwiperRef.current.destroy();
+      if (swiperRef1.current) swiperRef1.current.destroy();
+      if (swiperRef2.current) swiperRef2.current.destroy();
     };
   }, []);
+
   return (
       <div>
-        <div className="gorodki-container">
+        <div className="kyn-container">
           {/* Крупное название и текстовое описание */}
-          <h1 className="gorodki-title">Кын</h1>
-          <p className="gorodki-description">
+          <h1 className="kyn-title">Кын</h1>
+          <p className="kyn-description">
             Кын — это село в Пермском крае, которое славится своей богатой историей и активным развитием ремесел и туризма. Основанное в 1759 году, оно стало значимым центром металлургии благодаря Кыновскому железоделательному заводу, который работал более двухсот лет и обеспечивал металлом весь Урал.
             Село также известно своими археологическими находками: в его окрестностях были обнаружены пять из шести известных бронзовых блях с изображением медведя в жертвенной позе, относящихся к пермскому звериному стилю.
           </p>
 
           {/* Первая галерея */}
-          <div className="swiper-container">
+          <div className="swiper-container swiper-container-1">
             <div className="swiper-wrapper">
               {galleryImages.map((image, index) => (
                   <div className="swiper-slide" key={index}>
@@ -78,38 +82,36 @@ const Kyn = () => {
                   </div>
               ))}
             </div>
-            <div className="swiper-pagination"></div>
+            <div className="swiper-pagination swiper-pagination-1"></div>
           </div>
           <div className="swiper-navigation">
-            <div className="swiper-button-prev"></div>
-            <div className="swiper-button-next"></div>
+            <div className="swiper-button-prev swiper-button-prev-1"></div>
+            <div className="swiper-button-next swiper-button-next-1"></div>
           </div>
 
           {/* Описание для первой галереи */}
-          <p className="gorodki-description">
+          <p className="kyn-description">
             Природа вокруг Кына впечатляет живописными ландшафтами, включая знаменитые скалы Великан, Печка и Денежный на реке Чусовой. Эти места привлекают туристов и любителей активного отдыха, предоставляя возможности для пеших прогулок и фотосъемки.
           </p>
 
-          {/* Вторая галерея
-          <div className="swiper-container2">
-            <div className="swiper-wrapper2">
+          {/* Вторая галерея */}
+          <div className="swiper-container swiper-container-2">
+            <div className="swiper-wrapper">
               {secondGalleryImages.map((image, index) => (
-                  <div className="swiper-slide2" key={index}>
-                    <img src={image} alt={`Вторая галерея ${index + 1}`} />
+                  <div className="swiper-slide" key={index}>
+                    <img src={image} alt={`Изображение ${index + 1}`} />
                   </div>
               ))}
             </div>
-            <div className="swiper-pagination2"></div>
+            <div className="swiper-pagination swiper-pagination-2"></div>
           </div>
-
-          <div className="swiper-navigation2">
-            <div className="swiper-button-prev2"></div>
-            <div className="swiper-button-next2"></div>
+          <div className="swiper-navigation">
+            <div className="swiper-button-prev swiper-button-prev-2"></div>
+            <div className="swiper-button-next swiper-button-next-2"></div>
           </div>
-*/}
 
           {/* Описание для второй галереи */}
-          <p className="gorodki-description">
+          <p className="kyn-description">
             В Кыну активно развиваются различные ремесла, такие как лесозаготовка и производство мебели. Местные жители занимаются также рукоделием, создавая уникальные изделия из дерева, текстиля и глины.
           </p>
 
@@ -121,6 +123,7 @@ const Kyn = () => {
 };
 
 export default Kyn;
+
 
 
 

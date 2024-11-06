@@ -99,18 +99,17 @@
   position: absolute;
   top: 100%; /* Центрируем по вертикали */
   transform: translateY(-500%); /* Для точного центрирования */
-  z-index: 10; /* Стрелки всегда выше изображения */
-  color: var(--Green400); /* Цвет стрелок */
+  z-index: 10;
+  color: var(--Green400);
   width: 50px;
   height: 50px;
-  border-radius: 50%; /* Круглые стрелки */
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.8); /* Прозрачный белый фон */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Тень для стрелок */
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-
 }
 
 .home-block .swiper-button-prev:hover,

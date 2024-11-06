@@ -30,7 +30,7 @@ const Gorodki = () => {
         prevEl: '.swiper-button-prev',  // Стрелка "назад"
       },
       autoplay: {
-        delay: 3000,
+        delay: 5000,
       },
     });
 
@@ -62,8 +62,8 @@ const Gorodki = () => {
 
           {/* Контейнер для навигации со стрелками */}
           <div className="swiper-navigation">
-            <div className="swiper-button-prev"></div>
-            <div className="swiper-button-next"></div>
+            <div className="swiper-button-prev button-pan"></div>
+            <div className="swiper-button-next button-pan"></div>
           </div>
 
           <p className="gorodki-description">

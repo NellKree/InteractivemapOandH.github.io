@@ -1,4 +1,5 @@
 import './Home.css';
+import './../styles/main.css'
 import React, { useEffect, useRef } from 'react';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
@@ -71,8 +72,8 @@ const Home = () => {
 
                 {/* Контейнер для навигации со стрелками */}
                 <div className="swiper-navigation">
-                    <div className="swiper-button-prev"></div>
-                    <div className="swiper-button-next"></div>
+                    <div className="swiper-button-prev button-pan"></div>
+                    <div className="swiper-button-next button-pan"></div>
                 </div>
 
                 <QrCodeSection/>
